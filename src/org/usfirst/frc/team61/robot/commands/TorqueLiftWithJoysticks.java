@@ -25,8 +25,8 @@ public class TorqueLiftWithJoysticks extends GlobalCommand {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	drivetrain.tankDrive(oi.getElevSpeed(),oi.getElevSpeed());
-    	lift.moveLift(oi.getElevSpeed());
+    	drivetrain.tankDrive(oi.getLiftSpeed(),oi.getLiftSpeed());
+    	lift.moveLift(oi.getLiftSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
