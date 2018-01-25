@@ -3,6 +3,7 @@ package org.usfirst.frc.team61.robot.subsystems;
 import org.usfirst.frc.team61.robot.RobotMap;
 import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -12,6 +13,9 @@ public class DriveTrain extends Subsystem {
 	private Encoder leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB);
 	private Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
 
+	public Solenoid leftSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.leftSwapSolenoidChannel); // this solenoid swaps the motor that is controlling the wheels to the motor that controls the lift
+	public Solenoid rightSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.rightSwapSolenoidChannel);
+	
     CANTalon firstLeftMotor = new CANTalon(RobotMap.leftMotorA); 
     CANTalon secondLeftMotor = new CANTalon(RobotMap.leftMotorB);
     CANTalon firstRightMotor = new CANTalon(RobotMap.rightMotorA);
@@ -37,6 +41,15 @@ public class DriveTrain extends Subsystem {
     public void tankDrive(double left, double right) {
         moveLeftMotorStack(left);
         moveRightMotorStack(right);
+    }
+    
+    /**
+    * Changes the motors from driving mode to torque mode (add torque to the pulley by adding two motors)
+    * @author Team 61 Programming
+    */
+    public void swap() {
+    	leftSwapSolenoid.set(true);
+    	rightSwapSolenoid.set(true);
     }
     
     /**

@@ -1,6 +1,8 @@
 package org.usfirst.frc.team61.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+
 
 import org.usfirst.frc.team61.robot.commands.ExampleCommand;
 
@@ -9,6 +11,7 @@ import org.usfirst.frc.team61.robot.commands.ExampleCommand;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -36,4 +39,24 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	Joystick jLeft = new Joystick(RobotMap.leftStick);    
+	Joystick jRight = new Joystick(RobotMap.rightStick); 
+	Joystick jElev = new Joystick(RobotMap.elevStick);
+	Joystick jClaw = new Joystick(RobotMap.clawStick);
+    /** 
+     * Gets the position of the jLeft Y Axis
+     * @return joystick value scaled -1 to 1
+     */
+	public double getLeftSpeed() {
+        return (jLeft.getY()); 
+	}
+	
+    /** 
+     * Gets the position of the jLeft Y Axis
+     * @return joystick value scaled -1 to 1
+     */
+	public double getRightSpeed() {
+        return (jRight.getY()); 
+	}
 }

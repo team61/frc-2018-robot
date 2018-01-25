@@ -20,7 +20,10 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	
+	public static int leftStick = 0;
+	public static int rightStick = 1;
+	public static int elevStick = 2;
+	public static int clawStick = 3;
 
 	public static int leftMotorA = 0;
 	public static int leftMotorB = 1;
@@ -38,7 +41,12 @@ public class RobotMap {
 	public static int liftEncoderA = 4;
 	public static int liftEncoderB= 5;
 	
-	public static int encoderLiftMax = 100;
+	public static int encoderLiftMax = 100; // the maximum distance that we want the lift to go. this will need to be figured out.
+	
+	public static int swapSolenoidModuleNumber = 1;
+	
+	public static int leftSwapSolenoidChannel = 0;
+	public static int rightSwapSolenoidChannel = 1;
 
 	
 	
