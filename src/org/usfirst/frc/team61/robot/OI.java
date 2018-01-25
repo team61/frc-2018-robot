@@ -44,6 +44,15 @@ public class OI {
 	Joystick jRight = new Joystick(RobotMap.rightStick); 
 	Joystick jElev = new Joystick(RobotMap.elevStick);
 	Joystick jClaw = new Joystick(RobotMap.clawStick);
+	
+    /** 
+     * Gets the position of the jElev Y Axis
+     * @return joystick value scaled -1 to 1
+     */
+	public double getElevSpeed() {
+        return (jElev.getY()); 
+	}
+	
     /** 
      * Gets the position of the jLeft Y Axis
      * @return joystick value scaled -1 to 1

@@ -41,6 +41,10 @@ public class Lift extends Subsystem {
 		else moveLiftMotorStack(speed);
     }
     
+    public void moveLift(double speed) {
+    	moveLiftMotorStack(speed);
+    }
+    
 	private void moveLiftMotorStack(double speed) {
 		firstLiftMotor.set(speed);
 		secondLiftMotor.set(speed);
