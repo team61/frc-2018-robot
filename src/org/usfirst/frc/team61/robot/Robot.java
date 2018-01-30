@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team61.robot.commands.AutonomousBase;
 import org.usfirst.frc.team61.robot.commands.GlobalCommand;
+import org.usfirst.frc.team61.robot.commands.TorqueLiftWithJoysticks;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
 
 /**
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
     public final String versionNo = "1-18-2018.$";
 
 	Command autonomousCommand;
+	Command torqueLiftCommand;
 //	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -90,6 +92,14 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+    	oi.updateToggleOpenClaw();
+        if(oi.toggleOnOpenClaw){
+        	System.out.println("High Torque Lift Activated");
+    		torqueLiftCommand = new TorqueLiftWithJoysticks();
+        } else {
+        	GlobalCommand.lift.moveLift(oi.getLiftSpeed());
+        }
 	}
 
 	/**

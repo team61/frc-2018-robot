@@ -44,6 +44,9 @@ public class OI {
     public boolean toggleOnLiftClaw = false;
     boolean togglePressedLiftClaw = false;
 	
+    public boolean toggleOnLift = false;
+    boolean togglePressedLift = false;
+    
 	Joystick jLeft = new Joystick(RobotMap.leftStick);    
 	Joystick jRight = new Joystick(RobotMap.rightStick); 
 	Joystick jLift = new Joystick(RobotMap.elevStick);
@@ -79,6 +82,17 @@ public class OI {
         }
     }
 	
+    public void updateToggleLift()
+    {
+        if(jLift.getTrigger()){
+            if(!togglePressedLift){
+                toggleOnLift = !toggleOnLift;
+                togglePressedLift = true;
+            }
+        } else {
+            togglePressedLift = false;
+        }
+    }
     /** 
      * Gets the position of the jElev Y Axis
      * @return joystick value scaled -1 to 1

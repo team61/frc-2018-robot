@@ -1,6 +1,7 @@
 package org.usfirst.frc.team61.robot.commands;
 
 import org.usfirst.frc.team61.robot.Robot;
+import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -14,13 +15,11 @@ public class LiftBase extends GlobalCommand {
 	
     public LiftBase() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(lift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	normalLift = new NormalLiftWithJoysticks();
-    	torqueLift = new TorqueLiftWithJoysticks();
     }
 
     // Called repeatedly when this Command is scheduled to run
