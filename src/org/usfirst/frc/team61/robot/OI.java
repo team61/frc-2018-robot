@@ -54,7 +54,7 @@ public class OI {
 	
     public void updateToggle()
     {
-        if(jLeft.getRawButton(1)){
+        if(jLift.getRawButton(2)){
             if(!togglePressed){
                 toggleOn = !toggleOn;
                 togglePressed = true;

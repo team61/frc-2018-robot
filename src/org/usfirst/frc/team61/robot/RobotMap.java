@@ -47,6 +47,12 @@ public class RobotMap {
 	
 	public static int leftSwapSolenoidChannel = 0;
 	public static int rightSwapSolenoidChannel = 1;
+	
+	public static int pcmModule = 11;
+	public static int sClawLifterChannelA = 1;
+	public static int sClawLifterChannelB = 2;
+	public static int sClawChannelA = 2;
+	public static int sClawChannelB = 3;
 
 	
 	

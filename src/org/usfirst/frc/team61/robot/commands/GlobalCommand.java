@@ -1,6 +1,7 @@
 package org.usfirst.frc.team61.robot.commands;
 
 import org.usfirst.frc.team61.robot.OI;
+import org.usfirst.frc.team61.robot.subsystems.Claw;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team61.robot.subsystems.Lift;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,6 +13,7 @@ public abstract class GlobalCommand extends Command {
     
 	public static final DriveTrain drivetrain = new DriveTrain();
 	public static final Lift lift = new Lift();
+	public static final Claw claw = new Claw();
 	
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
