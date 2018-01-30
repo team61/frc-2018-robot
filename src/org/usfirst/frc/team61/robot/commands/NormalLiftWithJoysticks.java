@@ -9,7 +9,7 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
 
     public NormalLiftWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(lift);
     }
 
     // Called just before this Command runs the first time

@@ -24,7 +24,7 @@ public class TorqueLiftWithJoysticks extends GlobalCommand {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    	drivetrain.swap(); //this will possible go in initialize
+//    	drivetrain.swap(); //this will possible go in initialize
     	drivetrain.tankDrive(oi.getLiftSpeed(),oi.getLiftSpeed());
     	lift.moveLift(oi.getLiftSpeed());
     }
@@ -39,7 +39,7 @@ public class TorqueLiftWithJoysticks extends GlobalCommand {
     @Override
     protected void end() {
     	//reverts  (hopefully...) everything back to normal driving position
-    	drivetrain.unswap();
+//    	drivetrain.unswap();
     	drivetrain.stop();
     	lift.stop();
     }

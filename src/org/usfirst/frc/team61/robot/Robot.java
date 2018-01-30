@@ -26,13 +26,12 @@ public class Robot extends IterativeRobot {
     public final String versionNo = "1-18-2018.$";
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+//	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
-	@Override
 	public void robotInit() {
 		oi = new OI();
 		
@@ -40,9 +39,9 @@ public class Robot extends IterativeRobot {
 	    GlobalCommand.init();
 		
 		//chooser stuff
-		chooser.addDefault("Default Auto", new AutonomousBase());
+//		chooser.addDefault("Default Auto", new AutonomousBase());
 		// chooser.addObject("My Auto", new ExampleCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+//		SmartDashboard.putData("Auto mode", chooser);
 		
         // Ouput program info to system log.
         System.out.println("+----------------------------------------------+");
@@ -55,36 +54,30 @@ public class Robot extends IterativeRobot {
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 */
-	@Override
 	public void disabledInit() {
 		System.out.println("Disabled Intitiated");
 	}
 
-	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
 
-	@Override
 	public void autonomousInit() {
         // instantiate the command used for the autonomous period (the chooser on the smart dashboard will pick this)
-		autonomousCommand = chooser.getSelected();
+		autonomousCommand = new AutonomousBase();
 		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) autonomousCommand.start();
-		
 		System.out.println("Autonomous Initiated");
 	}
 
 	/**
 	 * This function is called periodically during autonomous
 	 */
-	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 	}
 
-	@Override
 	public void teleopInit() {
 		// stop the autonomous as soon as teleop starts
 		if (autonomousCommand != null) autonomousCommand.cancel();
@@ -95,7 +88,6 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
-	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 	}
@@ -103,7 +95,6 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during test mode
 	 */
-	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
 	}

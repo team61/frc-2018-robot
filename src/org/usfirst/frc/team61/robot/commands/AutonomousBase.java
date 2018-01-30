@@ -68,6 +68,7 @@ public class AutonomousBase extends GlobalCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	System.out.println("Autonomous Executed!");
+        drivetrain.tankDrive(.5, .5);
 //    	String gameData = DriverStation.getInstance().getGameSpecificMessage();
 //    	if(gameData.charAt(0) == 'L')
 //    	{

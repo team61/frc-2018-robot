@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The DriveTrain Subsystem
  */
 public class DriveTrain extends Subsystem {
-	private Encoder leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB);
-	private Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
-
-	public Solenoid leftSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.leftSwapSolenoidChannel); // this solenoid swaps the motor that is controlling the wheels to the motor that controls the lift
-	public Solenoid rightSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.rightSwapSolenoidChannel);
+//	private Encoder leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB);
+//	private Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
+//
+//	public Solenoid leftSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.leftSwapSolenoidChannel); // this solenoid swaps the motor that is controlling the wheels to the motor that controls the lift
+//	public Solenoid rightSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.rightSwapSolenoidChannel);
 	
     CANTalon firstLeftMotor = new CANTalon(RobotMap.leftMotorA); 
     CANTalon secondLeftMotor = new CANTalon(RobotMap.leftMotorB);
@@ -73,8 +73,9 @@ public class DriveTrain extends Subsystem {
      */
     private void moveRightMotorStack(double speed)
     {
-        firstRightMotor.set(speed);
-        secondRightMotor.set(speed);
+    // negative to go in forward direction
+        firstRightMotor.set(-speed);
+        secondRightMotor.set(-speed);
     }
     
     public void stop() {
@@ -87,60 +88,60 @@ public class DriveTrain extends Subsystem {
      * Resets the right encoder counter to 0
      * @author Team 61 Programming
      */
-    public void resetRightEncoder()
-    {
-        rightEncoder.reset();
-    }
-    
+//    public void resetRightEncoder()
+//    {
+//        rightEncoder.reset();
+//    }
+//    
     /**
      * Reset Left Encoder
      * Resets the left encoder counter to 0
      * @author Team 61 Programming
      */
-    public void resetLeftEncoder()
-    {
-        leftEncoder.reset();
-    }
-    
+//    public void resetLeftEncoder()
+//    {
+//        leftEncoder.reset();
+//    }
+//    
     /**
      * Get Right Encoder Distance
      * Returns scaled value of right encoder
      * @return distance since last reset of right encoder
      * @author Team 61 Programming
      */
-    public double getRightEncoder()
-    {
-        return rightEncoder.getDistance();
-    }
-    
+//    public double getRightEncoder()
+//    {
+//        return rightEncoder.getDistance();
+//    }
+//    
     /**
      * Get Left Encoder Distance
      * Returns scaled value of left encoder
      * @return distance since last reset of left encoder
      * @author Team 61 Programming
      */
-    public double getLeftEncoder()
-    {
-        return -leftEncoder.getDistance();
-    }
-    
+//    public double getLeftEncoder()
+//    {
+//        return -leftEncoder.getDistance();
+//    }
+//    
     /**
     * Changes the motors from driving mode to torque mode (add torque to the pulley by adding two motors)
     * @author Team 61 Programming
     */
-    public void swap() {
-    	leftSwapSolenoid.set(true);
-    	rightSwapSolenoid.set(true);
-    }
+//    public void swap() {
+//    	leftSwapSolenoid.set(true);
+//    	rightSwapSolenoid.set(true);
+//    }
 
     /**
     * Changes the motors from torque mode to driving mode
     * @author Team 61 Programming
     */
-	public void unswap() {
-    	leftSwapSolenoid.set(false);
-    	rightSwapSolenoid.set(false);
-		
-	}
+//	public void unswap() {
+//    	leftSwapSolenoid.set(false);
+//    	rightSwapSolenoid.set(false);
+//		
+//	}
 }
 
