@@ -2,9 +2,7 @@ package org.usfirst.frc.team61.robot.commands;
 
 import org.usfirst.frc.team61.robot.OI;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team61.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team61.robot.subsystems.Lift;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 
@@ -12,7 +10,6 @@ public abstract class GlobalCommand extends Command {
 
     public static OI oi;
     
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final DriveTrain drivetrain = new DriveTrain();
 	public static final Lift lift = new Lift();
 	

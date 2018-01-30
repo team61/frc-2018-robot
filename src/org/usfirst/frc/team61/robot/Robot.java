@@ -7,12 +7,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc.team61.robot.commands.AutonomousBase;
-import org.usfirst.frc.team61.robot.commands.ExampleCommand;
 import org.usfirst.frc.team61.robot.commands.GlobalCommand;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team61.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -44,7 +41,7 @@ public class Robot extends IterativeRobot {
 		
 		//chooser stuff
 		chooser.addDefault("Default Auto", new AutonomousBase());
-		chooser.addObject("My Auto", new ExampleCommand());
+		// chooser.addObject("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		
         // Ouput program info to system log.

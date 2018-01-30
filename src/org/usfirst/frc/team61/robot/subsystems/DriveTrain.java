@@ -1,6 +1,8 @@
 package org.usfirst.frc.team61.robot.subsystems;
 
 import org.usfirst.frc.team61.robot.RobotMap;
+import org.usfirst.frc.team61.robot.commands.DriveWithJoysticks;
+
 import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -29,7 +31,7 @@ public class DriveTrain extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-    	// setDefaultCommand(new DriveWithJoysticks());
+    	setDefaultCommand(new DriveWithJoysticks());
     }
     
     /**
@@ -41,15 +43,6 @@ public class DriveTrain extends Subsystem {
     public void tankDrive(double left, double right) {
         moveLeftMotorStack(left);
         moveRightMotorStack(right);
-    }
-    
-    /**
-    * Changes the motors from driving mode to torque mode (add torque to the pulley by adding two motors)
-    * @author Team 61 Programming
-    */
-    public void swap() {
-    	leftSwapSolenoid.set(true);
-    	rightSwapSolenoid.set(true);
     }
     
     /**
@@ -84,7 +77,7 @@ public class DriveTrain extends Subsystem {
         secondRightMotor.set(speed);
     }
     
-    private void stop() {
+    public void stop() {
     	moveLeftMotorStack(0.0);
     	moveRightMotorStack(0.0);
     }
@@ -130,5 +123,24 @@ public class DriveTrain extends Subsystem {
     {
         return -leftEncoder.getDistance();
     }
+    
+    /**
+    * Changes the motors from driving mode to torque mode (add torque to the pulley by adding two motors)
+    * @author Team 61 Programming
+    */
+    public void swap() {
+    	leftSwapSolenoid.set(true);
+    	rightSwapSolenoid.set(true);
+    }
+
+    /**
+    * Changes the motors from torque mode to driving mode
+    * @author Team 61 Programming
+    */
+	public void unswap() {
+    	leftSwapSolenoid.set(false);
+    	rightSwapSolenoid.set(false);
+		
+	}
 }
 

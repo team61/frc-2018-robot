@@ -67,15 +67,16 @@ public class AutonomousBase extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	String gameData = DriverStation.getInstance().getGameSpecificMessage();
-    	if(gameData.charAt(0) == 'L')
-    	{
-    		//Put left auto code here
-    	} else {
-    		//Put right auto code here
-    	}
+    	System.out.println("Autonomous Executed!");
+//    	String gameData = DriverStation.getInstance().getGameSpecificMessage();
+//    	if(gameData.charAt(0) == 'L')
+//    	{
+//    		//Put left auto code here
+//    	} else {
+//    		//Put right auto code here
+//    	}
     }
-    }
+    
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

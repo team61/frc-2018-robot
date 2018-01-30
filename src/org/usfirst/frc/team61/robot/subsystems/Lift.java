@@ -1,6 +1,7 @@
 package org.usfirst.frc.team61.robot.subsystems;
 
 import org.usfirst.frc.team61.robot.RobotMap;
+import org.usfirst.frc.team61.robot.commands.LiftBase;
 
 import com.ctre.CANTalon;
 
@@ -26,7 +27,7 @@ public class Lift extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-		// setDefaultCommand(new LiftWithJoysticks());
+		setDefaultCommand(new LiftBase());
     }
     
     public void moveLiftUp(double speed) { // we need something to determine if the pully has reached its max

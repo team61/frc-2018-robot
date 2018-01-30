@@ -2,9 +2,7 @@ package org.usfirst.frc.team61.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-
-
-import org.usfirst.frc.team61.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,10 +38,31 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
+    public boolean toggleOn = false;
+    boolean togglePressed = false;
+	
 	Joystick jLeft = new Joystick(RobotMap.leftStick);    
 	Joystick jRight = new Joystick(RobotMap.rightStick); 
 	Joystick jLift = new Joystick(RobotMap.elevStick);
 	Joystick jClaw = new Joystick(RobotMap.clawStick);
+	
+	Button torqueButton = new JoystickButton(jLeft,1);
+	
+	public OI() {
+		
+	}
+	
+    public void updateToggle()
+    {
+        if(jLeft.getRawButton(1)){
+            if(!togglePressed){
+                toggleOn = !toggleOn;
+                togglePressed = true;
+            }
+        } else {
+            togglePressed = false;
+        }
+    }
 	
     /** 
      * Gets the position of the jElev Y Axis
