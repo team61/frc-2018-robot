@@ -9,7 +9,7 @@ public class GrabWithJoysticks extends GlobalCommand {
 
     public GrabWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
-        requires(claw);
+    	requires(claw);
     }
 
     // Called just before this Command runs the first time
@@ -18,12 +18,18 @@ public class GrabWithJoysticks extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	oi.updateToggle();
-    	
-        if(oi.toggleOn){
+    	oi.updateToggleOpenClaw();
+        if(oi.toggleOnOpenClaw){
         	claw.openClaw();
         } else {
         	claw.closeClaw();
+        }
+        
+    	oi.updateToggleLiftClaw();
+        if(oi.toggleOnLiftClaw){
+        	claw.liftClaw();
+        } else {
+        	claw.lowerClaw();
         }
     }
 

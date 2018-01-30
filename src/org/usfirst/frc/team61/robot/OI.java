@@ -38,8 +38,11 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-    public boolean toggleOn = false;
-    boolean togglePressed = false;
+    public boolean toggleOnOpenClaw = false;
+    boolean togglePressedOpenClaw = false;
+    
+    public boolean toggleOnLiftClaw = false;
+    boolean togglePressedLiftClaw = false;
 	
 	Joystick jLeft = new Joystick(RobotMap.leftStick);    
 	Joystick jRight = new Joystick(RobotMap.rightStick); 
@@ -52,15 +55,27 @@ public class OI {
 		
 	}
 	
-    public void updateToggle()
+    public void updateToggleOpenClaw()
     {
-        if(jLift.getRawButton(2)){
-            if(!togglePressed){
-                toggleOn = !toggleOn;
-                togglePressed = true;
+        if(jClaw.getTrigger()){
+            if(!togglePressedOpenClaw){
+                toggleOnOpenClaw = !toggleOnOpenClaw;
+                togglePressedOpenClaw = true;
             }
         } else {
-            togglePressed = false;
+            togglePressedOpenClaw = false;
+        }
+    }
+    
+    public void updateToggleLiftClaw()
+    {
+        if(jLift.getTrigger()){
+            if(!togglePressedLiftClaw){
+                toggleOnLiftClaw = !toggleOnLiftClaw;
+                togglePressedLiftClaw = true;
+            }
+        } else {
+            togglePressedLiftClaw = false;
         }
     }
 	

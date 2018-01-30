@@ -14,6 +14,7 @@ public abstract class GlobalCommand extends Command {
 	public static final DriveTrain drivetrain = new DriveTrain();
 	public static final Lift lift = new Lift();
 	public static final Claw claw = new Claw();
+
 	
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

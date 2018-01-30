@@ -1,7 +1,11 @@
 package org.usfirst.frc.team61.robot.subsystems;
 
 import org.usfirst.frc.team61.robot.RobotMap;
+import org.usfirst.frc.team61.robot.commands.DriveWithJoysticks;
 import org.usfirst.frc.team61.robot.commands.GrabWithJoysticks;
+
+import com.ctre.CANTalon;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -11,10 +15,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Claw extends Subsystem {
 	
 	// from here on out, the s prefix will determine a solonoid
-	public Solenoid sClawLifterA = new Solenoid(RobotMap.pcmModule, RobotMap.sClawLifterChannelA);
-	public Solenoid sClawLifterB = new Solenoid(RobotMap.pcmModule, RobotMap.sClawLifterChannelB);
-	public Solenoid sClawA = new Solenoid(RobotMap.pcmModule, RobotMap.sClawChannelA);
-	public Solenoid sClawB = new Solenoid(RobotMap.pcmModule, RobotMap.sClawChannelB);
+	Solenoid sClawLifterA = new Solenoid(RobotMap.pcmModule, RobotMap.sClawLifterChannelA);
+	Solenoid sClawLifterB = new Solenoid(RobotMap.pcmModule, RobotMap.sClawLifterChannelB);
+	Solenoid sClawA = new Solenoid(RobotMap.pcmModule, RobotMap.sClawChannelA);
+	Solenoid sClawB = new Solenoid(RobotMap.pcmModule, RobotMap.sClawChannelB);
+	// toggle 2 and 3
 
     public Claw() {
     	super("Claw");
@@ -23,17 +28,27 @@ public class Claw extends Subsystem {
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new GrabWithJoysticks());
+    	setDefaultCommand(new GrabWithJoysticks());
     }
     
     public void openClaw() {
-    	sClawA.set(true);
+    	sClawA.set(false);
     	sClawB.set(true);
     }
     
     public void closeClaw() {
-    	sClawA.set(false);
+    	sClawA.set(true);
     	sClawB.set(false);
+    }
+    
+    public void liftClaw() {
+    	sClawLifterA.set(false);
+    	sClawLifterB.set(true);
+    }
+    
+    public void lowerClaw() {
+    	sClawLifterA.set(true);
+    	sClawLifterB.set(false);
     }
 }
 
