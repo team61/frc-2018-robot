@@ -18,10 +18,10 @@ public class DriveTrain extends Subsystem {
 //	public Solenoid leftSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.leftSwapSolenoidChannel); // this solenoid swaps the motor that is controlling the wheels to the motor that controls the lift
 //	public Solenoid rightSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.rightSwapSolenoidChannel);
 	
-    CANTalon firstLeftMotor = new CANTalon(RobotMap.leftMotorA); 
-    CANTalon secondLeftMotor = new CANTalon(RobotMap.leftMotorB);
-    CANTalon firstRightMotor = new CANTalon(RobotMap.rightMotorA);
-    CANTalon secondRightMotor = new CANTalon(RobotMap.rightMotorB);
+    CANTalon firstLeftMotor = new CANTalon(RobotMap.mLeftA); 
+    CANTalon secondLeftMotor = new CANTalon(RobotMap.mLeftB);
+    CANTalon firstRightMotor = new CANTalon(RobotMap.mRightA);
+    CANTalon secondRightMotor = new CANTalon(RobotMap.mRightB);
     
     // Initialize the subsystem
     public DriveTrain() {

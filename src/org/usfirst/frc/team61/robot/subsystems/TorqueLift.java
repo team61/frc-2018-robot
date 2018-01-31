@@ -18,12 +18,12 @@ public class TorqueLift extends Subsystem {
 	Solenoid sSwapA = new Solenoid(RobotMap.pcmModule, RobotMap.sLiftSwapA);
 	Solenoid sSwapB = new Solenoid(RobotMap.pcmModule, RobotMap.sLiftSwapB);
 	
-    CANTalon firstMotor = new CANTalon(RobotMap.leftMotorA); 
-    CANTalon secondMotor = new CANTalon(RobotMap.leftMotorB);
-    CANTalon thirdMotor = new CANTalon(RobotMap.rightMotorA);
-    CANTalon fourthMotor = new CANTalon(RobotMap.rightMotorB);
-	CANTalon fifthMotor = new CANTalon(RobotMap.liftMotorA);
-	CANTalon sixthMotor = new CANTalon(RobotMap.liftMotorB);
+    CANTalon firstMotor = new CANTalon(RobotMap.mLeftA); 
+    CANTalon secondMotor = new CANTalon(RobotMap.mLeftB);
+    CANTalon thirdMotor = new CANTalon(RobotMap.mRightA);
+    CANTalon fourthMotor = new CANTalon(RobotMap.mRightB);
+	CANTalon fifthMotor = new CANTalon(RobotMap.mLiftA);
+	CANTalon sixthMotor = new CANTalon(RobotMap.mLiftB);
 	
     public TorqueLift() {
     	super("TorqueLift");

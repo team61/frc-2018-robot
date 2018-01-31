@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Lift extends Subsystem {
 
-	CANTalon firstLiftMotor = new CANTalon(RobotMap.liftMotorA);
-	CANTalon secondLiftMotor = new CANTalon(RobotMap.liftMotorB);
-//	Encoder liftEncoder = new Encoder(RobotMap.liftEncoderA, RobotMap.liftEncoderB);
+	CANTalon firstLiftMotor = new CANTalon(RobotMap.mLiftA);
+	CANTalon secondLiftMotor = new CANTalon(RobotMap.mLiftB);
+//	Encoder liftEncoder = new Encoder(RobotMap.eLiftA, RobotMap.eLiftB);
 
 	public Lift() {
 		super("Lift");

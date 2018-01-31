@@ -20,34 +20,29 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 
+	//Joystick Ports
 	public static int leftStick = 0;
 	public static int rightStick = 1;
 	public static int elevStick = 2;
 	public static int clawStick = 3;
 
-	public static int leftMotorA = 1;
-	public static int leftMotorB = 2;
-	public static int rightMotorA = 3;
-	public static int rightMotorB = 4;
+	//Motor Ports
+	public static int mLeftA = 1;
+	public static int mLeftB = 2;
+	public static int mRightA = 3;
+	public static int mRightB = 4;
+	public static int mLiftA = 5;
+	public static int mLiftB = 6;
 	
-	public static int liftMotorA = 5;
-	public static int liftMotorB = 6;
+	//Encoder Ports
+	public static int eLeftA = 0;
+	public static int eLeftB = 1;
+	public static int eRightA = 2;
+	public static int eRightB = 3;
+	public static int eLiftA = 4;
+	public static int eLiftB= 5;
 	
-	public static int leftEncoderA = 0;
-	public static int leftEncoderB = 1;
-	public static int rightEncoderA = 2;
-	public static int rightEncoderB = 3;
-	
-	public static int liftEncoderA = 4;
-	public static int liftEncoderB= 5;
-	
-	public static int encoderLiftMax = 100; // the maximum distance that we want the lift to go. this will need to be figured out.
-	
-	public static int swapSolenoidModuleNumber = 1;
-	
-	public static int leftSwapSolenoidChannel = 0;
-	public static int rightSwapSolenoidChannel = 1;
-	
+	//Solonoids 
 	public static int pcmModule = 11;
 	public static int sClawLifterChannelA = 0;
 	public static int sClawLifterChannelB = 1;
@@ -55,6 +50,13 @@ public class RobotMap {
 	public static int sClawChannelB = 3;
 	public static int sLiftSwapA = 4;
 	public static int sLiftSwapB = 5;
+	
+	//Misc.
+	public static int liftMaxHeight = 100; 
+	// the maximum distance that we want the lift to 
+	// go. this will need to be figured out.
+	
+
 
 	
 	
