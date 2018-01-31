@@ -18,6 +18,7 @@ public class GrabWithJoysticks extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	// toggle button to open and close claw
     	oi.updateToggleOpenClaw();
         if(oi.toggleOnOpenClaw){
         	claw.openClaw();
@@ -25,6 +26,7 @@ public class GrabWithJoysticks extends GlobalCommand {
         	claw.closeClaw();
         }
         
+        // toggle button to lift and lower claw
     	oi.updateToggleLiftClaw();
         if(oi.toggleOnLiftClaw){
         	claw.liftClaw();

@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team61.robot.commands.AutonomousBase;
 import org.usfirst.frc.team61.robot.commands.GlobalCommand;
-import org.usfirst.frc.team61.robot.commands.TorqueLiftWithJoysticks;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
 
 /**
@@ -83,7 +82,6 @@ public class Robot extends IterativeRobot {
 	public void teleopInit() {
 		// stop the autonomous as soon as teleop starts
 		if (autonomousCommand != null) autonomousCommand.cancel();
-		
 		System.out.println("Teleop Initiated");
 	}
 
@@ -92,14 +90,6 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
-    	oi.updateToggleOpenClaw();
-        if(oi.toggleOnOpenClaw){
-        	System.out.println("High Torque Lift Activated");
-    		torqueLiftCommand = new TorqueLiftWithJoysticks();
-        } else {
-        	GlobalCommand.lift.moveLift(oi.getLiftSpeed());
-        }
 	}
 
 	/**
