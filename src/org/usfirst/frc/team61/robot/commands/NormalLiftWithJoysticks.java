@@ -26,6 +26,7 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
         	return;
         } else {
         	//the commands here will be what normally runs
+        	torquelift.sSet();
         	lift.moveLift(oi.getLiftSpeed());
         }
     }

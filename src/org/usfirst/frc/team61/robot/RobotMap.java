@@ -53,6 +53,8 @@ public class RobotMap {
 	public static int sClawLifterChannelB = 1;
 	public static int sClawChannelA = 2;
 	public static int sClawChannelB = 3;
+	public static int sLiftSwapA = 4;
+	public static int sLiftSwapB = 5;
 
 	
 	
