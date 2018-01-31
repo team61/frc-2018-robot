@@ -1,6 +1,7 @@
 package org.usfirst.frc.team61.robot.subsystems;
 
 import org.usfirst.frc.team61.robot.RobotMap;
+import org.usfirst.frc.team61.robot.commands.TorqueLiftWithJoysticks;
 
 import com.ctre.CANTalon;
 
@@ -28,7 +29,7 @@ public class TorqueLift extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new TorqueLiftWithJoysticks());
     }
     
     public void moveAllMotors(double speed) {
