@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GrabWithJoysticks extends GlobalCommand {
+public class TorqueLiftWithJoysticks extends GlobalCommand {
 
-    public GrabWithJoysticks() {
+    public TorqueLiftWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
-    	requires(claw);
+        requires(torquelift);
     }
 
     // Called just before this Command runs the first time
@@ -20,28 +20,11 @@ public class GrabWithJoysticks extends GlobalCommand {
     protected void execute() {
     	oi.updateToggleLift();
         if(oi.toggleOnLift){
-        	// commands to occur when torque toggle is pressed
-        	// we only want the moveAllMotors command in TorqueLift to
-        	// run so we will do nothing here
-        	return;
+        	// move all motors if trigger is pushed
+        	torquelift.moveAllMotors(oi.getClawSpeed());
         } else {
         	//the commands here will be what normally runs
-        	
-        	// toggle button to open and close claw
-        	oi.updateToggleOpenClaw();
-            if(oi.toggleOnOpenClaw){
-            	claw.openClaw();
-            } else {
-            	claw.closeClaw();
-            }
-            
-            // toggle button to lift and lower claw
-        	oi.updateToggleLiftClaw();
-            if(oi.toggleOnLiftClaw){
-            	claw.liftClaw();
-            } else {
-            	claw.lowerClaw();
-            }
+        	return;
         }
     }
 

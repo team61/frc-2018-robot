@@ -18,7 +18,16 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	lift.moveLift(oi.getLiftSpeed());
+    	oi.updateToggleLift();
+        if(oi.toggleOnLift){
+        	// commands to occur when torque toggle is pressed
+        	// we only want the moveAllMotors command in TorqueLift to
+        	// run so we will do nothing here
+        	return;
+        } else {
+        	//the commands here will be what normally runs
+        	lift.moveLift(oi.getLiftSpeed());
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

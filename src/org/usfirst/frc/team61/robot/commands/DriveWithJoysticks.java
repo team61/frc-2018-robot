@@ -19,7 +19,16 @@ public class DriveWithJoysticks extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
+    	oi.updateToggleLift();
+        if(oi.toggleOnLift){
+        	// commands to occur when torque toggle is pressed
+        	// we only want the moveAllMotors command in TorqueLift to
+        	// run so we will do nothing here
+        	return;
+        } else {
+        	//the commands here will be what normally runs
+        	drivetrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
