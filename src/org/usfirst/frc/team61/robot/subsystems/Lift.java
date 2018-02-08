@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -17,6 +18,7 @@ public class Lift extends Subsystem {
 
 	CANTalon firstLiftMotor = new CANTalon(RobotMap.mLiftA);
 	CANTalon secondLiftMotor = new CANTalon(RobotMap.mLiftB);
+	DigitalInput limitSwitchA = new DigitalInput(RobotMap.limitSwitchA);
 //	Encoder liftEncoder = new Encoder(RobotMap.eLiftA, RobotMap.eLiftB);
 
 	public Lift() {
@@ -52,6 +54,12 @@ public class Lift extends Subsystem {
 	public void stop() {
 		firstLiftMotor.set(0.0);
 		secondLiftMotor.set(0.0);
+//		Timer.delay(1);
+	}
+
+	public boolean isSwitchSet() {
+		// TODO Auto-generated method stub
+		return limitSwitchA.get();
 	}
 
 //	public double getLiftEncoder(){

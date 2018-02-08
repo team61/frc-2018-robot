@@ -17,6 +17,8 @@ public class OI {
 	
     public boolean toggleOnOpenClaw = false;
     boolean togglePressedOpenClaw = false;
+    public boolean toggleOnBar = false;
+    boolean togglePressedBar = false;
     public boolean toggleOnLiftClaw = false;
     boolean togglePressedLiftClaw = false;
     public boolean toggleOnLift = false;
@@ -57,6 +59,19 @@ public class OI {
         }
     }
 	
+    public void updateToggleBar()
+    {
+        if(jClaw.getRawButton(10)){
+            if(!togglePressedBar){
+                toggleOnBar = !toggleOnBar;
+                togglePressedBar = true;
+            }
+        } else {
+            togglePressedBar = false;
+        }
+    }
+	
+    
     public void updateToggleLift()
     {
         if(jRight.getTrigger()){
@@ -76,6 +91,13 @@ public class OI {
         return (jLift.getY()); 
 	}
 	
+	public double getLiftYSpeed() {
+		if (getLiftSpeed() < 0) {
+			return (jLift.getY());
+		} else {
+			return 0;		
+		}
+	}
     /** 
      * Gets the position of the jLeft Y Axis
      * @return joystick value scaled -1 to 1

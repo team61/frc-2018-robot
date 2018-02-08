@@ -42,6 +42,14 @@ public class GrabWithJoysticks extends GlobalCommand {
             } else {
             	claw.lowerClaw();
             }
+            
+            // toggle button to lift and lower bar
+        	oi.updateToggleBar();
+            if(oi.toggleOnBar){
+            	claw.liftBar();
+            } else {
+            	claw.lowerBar();
+            }
         }
     }
 

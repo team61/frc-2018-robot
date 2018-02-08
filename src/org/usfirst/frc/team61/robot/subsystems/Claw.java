@@ -18,6 +18,8 @@ public class Claw extends Subsystem {
 	Solenoid sClawLifterB = new Solenoid(RobotMap.pcmModule, RobotMap.sClawLifterChannelB);
 	Solenoid sClawA = new Solenoid(RobotMap.pcmModule, RobotMap.sClawChannelA);
 	Solenoid sClawB = new Solenoid(RobotMap.pcmModule, RobotMap.sClawChannelB);
+	Solenoid sBarA = new Solenoid(RobotMap.pcmModule, 6);
+	Solenoid sBarB = new Solenoid(RobotMap.pcmModule, 7);
 	// toggle 2 and 3
 
     public Claw() {
@@ -48,6 +50,16 @@ public class Claw extends Subsystem {
     public void lowerClaw() {
     	sClawLifterA.set(true);
     	sClawLifterB.set(false);
+    }
+    
+    public void liftBar() {
+    	sBarA.set(false);
+    	sBarB.set(true);
+    }
+    
+    public void lowerBar() {
+    	sBarA.set(true);
+    	sBarB.set(false);
     }
 }
 

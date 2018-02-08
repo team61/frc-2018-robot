@@ -18,6 +18,12 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	boolean ready = true;
+    	if (lift.isSwitchSet()) {
+    		ready = false;
+    	} else {
+    		ready = true;
+    	}
     	oi.updateToggleLift();
         if(oi.toggleOnLift){
         	// commands to occur when torque toggle is pressed
@@ -26,8 +32,13 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
         	return;
         } else {
         	//the commands here will be what normally runs
-        	torquelift.sSet();
-        	lift.moveLift(oi.getLiftSpeed());
+        	if (ready) {
+            	torquelift.sSet();
+            	lift.moveLift(oi.getLiftSpeed());
+        	} else {
+        		System.out.println("Hello!");
+            	lift.moveLift(oi.getLiftYSpeed());
+        	}
         }
     }
 
