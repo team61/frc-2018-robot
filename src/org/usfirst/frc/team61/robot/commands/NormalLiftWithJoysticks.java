@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class NormalLiftWithJoysticks extends GlobalCommand {
-
     public NormalLiftWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
         requires(lift);
@@ -18,25 +17,27 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean ready = true;
-    	if (lift.isSwitchSet()) {
-    		ready = false;
-    	} else {
-    		ready = true;
-    	}
+//    	boolean ready = true;
+//    	if (lift.isSwitchSet()) {
+//    		ready = false;
+//    	} else {
+//    		ready = true;
+//    	}
     	oi.updateToggleLift();
         if(oi.toggleOnLift){
         	// commands to occur when torque toggle is pressed
         	// we only want the moveAllMotors command in TorqueLift to
         	// run so we will do nothing here
-        	return;
+        	
+        	if (!limitswitch.getReadyState()) {
+        		lift.moveLift(oi.getLiftYSpeed());
+        	}
         } else {
         	//the commands here will be what normally runs
-        	if (ready) {
+        	if (limitswitch.getReadyState()) {
             	torquelift.sSet();
             	lift.moveLift(oi.getLiftSpeed());
         	} else {
-        		System.out.println("Hello!");
             	lift.moveLift(oi.getLiftYSpeed());
         	}
         }

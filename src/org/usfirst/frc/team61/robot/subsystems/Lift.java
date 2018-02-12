@@ -18,7 +18,7 @@ public class Lift extends Subsystem {
 
 	CANTalon firstLiftMotor = new CANTalon(RobotMap.mLiftA);
 	CANTalon secondLiftMotor = new CANTalon(RobotMap.mLiftB);
-	DigitalInput limitSwitchA = new DigitalInput(RobotMap.limitSwitchA);
+//	DigitalInput limitSwitchA = new DigitalInput(RobotMap.limitSwitchA);
 //	Encoder liftEncoder = new Encoder(RobotMap.eLiftA, RobotMap.eLiftB);
 
 	public Lift() {
@@ -57,10 +57,10 @@ public class Lift extends Subsystem {
 //		Timer.delay(1);
 	}
 
-	public boolean isSwitchSet() {
-		// TODO Auto-generated method stub
-		return limitSwitchA.get();
-	}
+//	public boolean isSwitchSet() {
+//		// TODO Auto-generated method stub
+//		return limitSwitchA.get();
+//	}
 
 //	public double getLiftEncoder(){
 //		return liftEncoder.getDistance();

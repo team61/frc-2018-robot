@@ -20,15 +20,20 @@ public class GrabWithJoysticks extends GlobalCommand {
     protected void execute() {
     	oi.updateToggleLift();
         if(oi.toggleOnLift){
-        	// commands to occur when torque toggle is pressed
-        	// we only want the moveAllMotors command in TorqueLift to
-        	// run so we will do nothing here
+        	// The only things that will run in this section will be 
+        	// what we need to run when the torque lift button is pressed
+        	oi.updateToggleBar();
+            if(oi.toggleOnBar){
+            	claw.liftBar();
+            } else {
+            	claw.lowerBar();
+            }
         	return;
         } else {
-        	//the commands here will be what normally runs
-        	
-        	// toggle button to open and close claw
-        	oi.updateToggleOpenClaw();
+        	// The commands that run here will
+        	// be what normally runs during the teleop
+        	// period.
+        	oi.updateToggleClaw();
             if(oi.toggleOnOpenClaw){
             	claw.openClaw();
             } else {
@@ -41,14 +46,6 @@ public class GrabWithJoysticks extends GlobalCommand {
             	claw.liftClaw();
             } else {
             	claw.lowerClaw();
-            }
-            
-            // toggle button to lift and lower bar
-        	oi.updateToggleBar();
-            if(oi.toggleOnBar){
-            	claw.liftBar();
-            } else {
-            	claw.lowerBar();
             }
         }
     }

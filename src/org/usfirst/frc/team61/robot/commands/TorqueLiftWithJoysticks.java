@@ -19,7 +19,7 @@ public class TorqueLiftWithJoysticks extends GlobalCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	oi.updateToggleLift();
-        if(oi.toggleOnLift){
+        if(oi.toggleOnLift && limitswitch.getReadyState()){
         	// move all motors if trigger is pushed
         	torquelift.swap();
         	torquelift.moveAllMotors(oi.getLiftSpeed());

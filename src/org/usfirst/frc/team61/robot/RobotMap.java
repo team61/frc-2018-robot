@@ -56,6 +56,7 @@ public class RobotMap {
 	// the maximum distance that we want the lift to 
 	// go. this will need to be figured out.
 	public static int limitSwitchA = 0;
+	public static int barToggleButton = 10;
 	
 
 

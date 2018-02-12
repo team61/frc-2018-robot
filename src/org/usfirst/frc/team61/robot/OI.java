@@ -14,7 +14,6 @@ public class OI {
 	// these are required for the toggle to remain
 	// on when a switch is pressed and turn off
 	// when switched again
-	
     public boolean toggleOnOpenClaw = false;
     boolean togglePressedOpenClaw = false;
     public boolean toggleOnBar = false;
@@ -24,18 +23,17 @@ public class OI {
     public boolean toggleOnLift = false;
     boolean togglePressedLift = false;
     
+    // Declare Joysticks
 	Joystick jLeft = new Joystick(RobotMap.leftStick);    
 	Joystick jRight = new Joystick(RobotMap.rightStick); 
 	Joystick jLift = new Joystick(RobotMap.elevStick);
 	Joystick jClaw = new Joystick(RobotMap.clawStick);
 	
-	Button torqueButton = new JoystickButton(jLeft,1);
-	
 	public OI() {
 		
 	}
 	
-    public void updateToggleOpenClaw()
+    public void updateToggleClaw()
     {
         if(jClaw.getTrigger()){
             if(!togglePressedOpenClaw){
@@ -61,7 +59,7 @@ public class OI {
 	
     public void updateToggleBar()
     {
-        if(jClaw.getRawButton(10)){
+        if(jClaw.getRawButton(RobotMap.barToggleButton)){
             if(!togglePressedBar){
                 toggleOnBar = !toggleOnBar;
                 togglePressedBar = true;
