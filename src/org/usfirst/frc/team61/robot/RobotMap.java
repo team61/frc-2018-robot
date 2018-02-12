@@ -39,8 +39,8 @@ public class RobotMap {
 	public static int eLeftB = 1;
 	public static int eRightA = 2;
 	public static int eRightB = 3;
-	public static int eLiftA = 4;
-	public static int eLiftB= 5;
+	public static int eLiftA = 3;
+	public static int eLiftB= 4;
 	
 	//Solonoids 
 	public static int pcmModule = 11;
@@ -52,7 +52,7 @@ public class RobotMap {
 	public static int sLiftSwapB = 5;
 	
 	//Misc.
-	public static int liftMaxHeight = 100; 
+	public static int liftMaxHeight = 5000 - 850; // limit minus starting point
 	// the maximum distance that we want the lift to 
 	// go. this will need to be figured out.
 	public static int limitSwitchA = 0;

@@ -89,13 +89,22 @@ public class OI {
         return (jLift.getY()); 
 	}
 	
-	public double getLiftYSpeed() {
+	public double getLiftYUpSpeed() {
 		if (getLiftSpeed() < 0) {
 			return (jLift.getY());
 		} else {
 			return 0;		
 		}
 	}
+	
+	public double getLiftYDownSpeed() {
+		if (getLiftSpeed() > 0) {
+			return (jLift.getY());
+		} else {
+			return 0;		
+		}
+	}
+	
     /** 
      * Gets the position of the jLeft Y Axis
      * @return joystick value scaled -1 to 1

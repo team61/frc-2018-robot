@@ -1,5 +1,7 @@
 package org.usfirst.frc.team61.robot.commands;
 
+import org.usfirst.frc.team61.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -7,22 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class NormalLiftWithJoysticks extends GlobalCommand {
     public NormalLiftWithJoysticks() {
-        // Use requires() here to declare subsystem dependencies
         requires(lift);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
+        lift.resetEncoder();
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	boolean ready = true;
-//    	if (lift.isSwitchSet()) {
-//    		ready = false;
-//    	} else {
-//    		ready = true;
-//    	}
     	oi.updateToggleLift();
         if(oi.toggleOnLift){
         	// commands to occur when torque toggle is pressed
@@ -30,15 +24,21 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
         	// run so we will do nothing here
         	
         	if (!limitswitch.getReadyState()) {
-        		lift.moveLift(oi.getLiftYSpeed());
+        		lift.moveLift(oi.getLiftYDownSpeed());
         	}
         } else {
         	//the commands here will be what normally runs
         	if (limitswitch.getReadyState()) {
-            	torquelift.sSet();
-            	lift.moveLift(oi.getLiftSpeed());
+        		if(lift.getLiftEncoder() < RobotMap.liftMaxHeight) {
+                	torquelift.sSet();
+                	lift.moveLift(oi.getLiftSpeed());
+        		} else {
+        			lift.moveLift(oi.getLiftYDownSpeed());
+        		}
+            	System.out.println("Encoder Value = " + lift.getLiftEncoder());
         	} else {
-            	lift.moveLift(oi.getLiftYSpeed());
+        		lift.resetEncoder();
+            	lift.moveLift(oi.getLiftYUpSpeed());
         	}
         }
     }

@@ -18,26 +18,25 @@ public class Lift extends Subsystem {
 
 	CANTalon firstLiftMotor = new CANTalon(RobotMap.mLiftA);
 	CANTalon secondLiftMotor = new CANTalon(RobotMap.mLiftB);
-//	DigitalInput limitSwitchA = new DigitalInput(RobotMap.limitSwitchA);
-//	Encoder liftEncoder = new Encoder(RobotMap.eLiftA, RobotMap.eLiftB);
+	Encoder liftEncoder = new Encoder(RobotMap.eLiftA, RobotMap.eLiftB);
 
 	public Lift() {
 		super("Lift");
 		System.out.println("Lift Initiated");
+		liftEncoder.setDistancePerPulse(1.0);
 	}
 
     public void initDefaultCommand() {
 		setDefaultCommand(new NormalLiftWithJoysticks());
     }
     
-    public void moveLiftUp(double speed) { // we need something to determine if the pully has reached its max
-//		if(getLiftEncoder() >= RobotMap.encoderLiftMax && speed > 0) stop();
+    public void moveLiftUp(double speed) {
+
 		if(speed < 0) speed = 0;
 		moveLiftMotorStack(speed);
     }
     
-    public void moveLiftDown(double speed) { // we need something to determine if the pully has reached its max
-//		if(getLiftEncoder() >= RobotMap.encoderLiftMax && speed > 0) stop();
+    public void moveLiftDown(double speed) {
 		if(speed > 0) speed = 0;
 		moveLiftMotorStack(speed);
     }
@@ -46,28 +45,24 @@ public class Lift extends Subsystem {
     	moveLiftMotorStack(speed);
     }
     
+	@SuppressWarnings("deprecation")
 	private void moveLiftMotorStack(double speed) {
 		firstLiftMotor.set(speed);
 		secondLiftMotor.set(speed);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void stop() {
 		firstLiftMotor.set(0.0);
 		secondLiftMotor.set(0.0);
-//		Timer.delay(1);
+	}
+	
+	public double getLiftEncoder(){
+		return liftEncoder.getDistance();
 	}
 
-//	public boolean isSwitchSet() {
-//		// TODO Auto-generated method stub
-//		return limitSwitchA.get();
-//	}
-
-//	public double getLiftEncoder(){
-//		return liftEncoder.getDistance();
-//	}
-//	
-//	public void resetEncoder(){
-//		liftEncoder.reset();
-//	}
+	public void resetEncoder(){
+		liftEncoder.reset();
+	}
 }
 
