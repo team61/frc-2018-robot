@@ -24,7 +24,7 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
         	// run so we will do nothing here
         	
         	if (!limitswitch.getReadyState()) {
-        		lift.moveLift(oi.getLiftYDownSpeed());
+        		lift.moveLift(oi.getLiftYUpSpeed());
         	}
         } else {
         	//the commands here will be what normally runs

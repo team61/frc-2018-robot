@@ -1,5 +1,7 @@
 package org.usfirst.frc.team61.robot.commands;
 
+import org.usfirst.frc.team61.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -20,9 +22,12 @@ public class TorqueLiftWithJoysticks extends GlobalCommand {
     protected void execute() {
     	oi.updateToggleLift();
         if(oi.toggleOnLift && limitswitch.getReadyState()){
-        	// move all motors if trigger is pushed
-        	torquelift.swap();
-        	torquelift.moveAllMotors(oi.getLiftSpeed());
+    		if(lift.getLiftEncoder() < RobotMap.liftMaxHeight) {
+            	torquelift.swap();
+            	torquelift.moveAllMotors(oi.getLiftSpeed());
+    		} else {
+    			torquelift.moveAllMotors(oi.getLiftYDownSpeed());
+    		}
         } else {
         	//the commands here will be what normally runs
         	return;
