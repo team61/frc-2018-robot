@@ -9,17 +9,6 @@ import edu.wpi.first.wpilibj.DigitalSource;
  * floating around.
  */
 public class RobotMap {
-	
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
-
 	//Joystick Ports
 	public static int leftStick = 0;
 	public static int rightStick = 1;
@@ -36,9 +25,9 @@ public class RobotMap {
 	
 	//Encoder Ports
 	public static int eLeftA = 0;
-	public static int eLeftB = 1;
-	public static int eRightA = 2;
-	public static int eRightB = 3;
+	public static int eLeftB = 0;
+	public static int eRightA = 0;
+	public static int eRightB = 0;
 	public static int eLiftA = 3;
 	public static int eLiftB= 4;
 	
@@ -51,16 +40,10 @@ public class RobotMap {
 	public static int sLiftSwapA = 4;
 	public static int sLiftSwapB = 5;
 	
-	//Misc.
-	public static int liftMaxHeight = 5000 - 850; // limit minus starting point
-	// the maximum distance that we want the lift to 
-	// go. this will need to be figured out.
+	//Limit Switches
 	public static int limitSwitchA = 0;
+	
+	//Misc.
+	public static int liftMaxHeight = 5000 - 800; // limit minus starting point
 	public static int barToggleButton = 10;
-	
-
-
-	
-	
-
 }

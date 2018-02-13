@@ -19,25 +19,31 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
     protected void execute() {
     	oi.updateToggleLift();
         if(oi.toggleOnLift){
-        	// commands to occur when torque toggle is pressed
-        	// we only want the moveAllMotors command in TorqueLift to
-        	// run so we will do nothing here
-        	
+        	// The commands here will occur if the TorqueLift toggle switch
+        	// is activated. All code here will only run after the button
+        	// has been toggled.
         	if (!limitswitch.getReadyState()) {
         		lift.moveLift(oi.getLiftYUpSpeed());
         	}
         } else {
-        	//the commands here will be what normally runs
+        	// The commands here will occur normally, when the TorqueLift is
+        	// not activated.
         	if (limitswitch.getReadyState()) {
         		if(lift.getLiftEncoder() < RobotMap.liftMaxHeight) {
                 	torquelift.sSet();
                 	lift.moveLift(oi.getLiftSpeed());
+                	if (lift.getLiftEncoder() < -500) {
+                		if (oi.getLiftSpeed() < 0) {
+                			lift.moveLift(oi.getLiftSpeed());
+                		} else {
+                			lift.moveLift(oi.getLiftSpeed()/3);
+                		}
+                	}
         		} else {
         			lift.moveLift(oi.getLiftYDownSpeed());
         		}
             	System.out.println("Encoder Value = " + lift.getLiftEncoder());
         	} else {
-        		lift.resetEncoder();
             	lift.moveLift(oi.getLiftYUpSpeed());
         	}
         }

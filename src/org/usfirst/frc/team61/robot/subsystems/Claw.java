@@ -32,31 +32,55 @@ public class Claw extends Subsystem {
     	setDefaultCommand(new GrabWithJoysticks());
     }
     
+    /**
+     * Opens the claw using solenoids
+     * @author Team 61 Programming
+     */
     public void openClaw() {
     	sClawA.set(false);
     	sClawB.set(true);
     }
     
+    /**
+     * Closes the claw using solenoids
+     * @author Team 61 Programming
+     */
     public void closeClaw() {
     	sClawA.set(true);
     	sClawB.set(false);
     }
     
+    /**
+     * Lifts the claw using solenoids
+     * @author Team 61 Programming
+     */
     public void liftClaw() {
     	sClawLifterA.set(false);
     	sClawLifterB.set(true);
     }
     
+    /**
+     * Lowers the claw using solenoids
+     * @author Team 61 Programming
+     */
     public void lowerClaw() {
     	sClawLifterA.set(true);
     	sClawLifterB.set(false);
     }
     
+    /**
+     * Lifts the bar using solenoids
+     * @author Team 61 Programming
+     */
     public void liftBar() {
     	sBarA.set(false);
     	sBarB.set(true);
     }
     
+    /**
+     * Lowers the bar using solenoids
+     * @author Team 61 Programming
+     */
     public void lowerBar() {
     	sBarA.set(true);
     	sBarB.set(false);

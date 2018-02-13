@@ -22,14 +22,25 @@ public class TorqueLiftWithJoysticks extends GlobalCommand {
     protected void execute() {
     	oi.updateToggleLift();
         if(oi.toggleOnLift && limitswitch.getReadyState()){
+        	// The commands here will occur if the TorqueLift toggle switch
+        	// is activated. All code here will only run after the button
+        	// has been toggled.
     		if(lift.getLiftEncoder() < RobotMap.liftMaxHeight) {
             	torquelift.swap();
             	torquelift.moveAllMotors(oi.getLiftSpeed());
+            	if (lift.getLiftEncoder() < -500) {
+            		if (oi.getLiftSpeed() < 0) {
+            			torquelift.moveAllMotors(oi.getLiftSpeed());
+            		} else {
+            			torquelift.moveAllMotors(oi.getLiftSpeed()/3);
+            		}
+            	}
     		} else {
     			torquelift.moveAllMotors(oi.getLiftYDownSpeed());
     		}
         } else {
-        	//the commands here will be what normally runs
+        	// The commands here will occur normally, when the TorqueLift is
+        	// not activated.
         	return;
         }
     }

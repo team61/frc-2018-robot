@@ -35,7 +35,7 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
-     * Tank drive for main drivetrain.
+     * Tank-drive controls.
      * @author Team 61 Programming
      * @param left Left motor value or motor stack value
      * @param right Right motor value or motor stack value
@@ -46,7 +46,7 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
-     * Reversed controls tankDrive.
+     * Reversed tank-drive controls.
      * @author Team 61 Programming
      * @param left Left motor value or motor stack value
      * @param right Right motor value or motor stack value
@@ -57,6 +57,7 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
+     * Moves the multiple motors on the left side.
      * @author Team 61 Programming
      * @param speed 
      */
@@ -68,6 +69,7 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
+     * Moves the multiple motors on the right side.
      * @author Team 61 Programming
      * @param speed 
      */
@@ -78,6 +80,11 @@ public class DriveTrain extends Subsystem {
         secondRightMotor.set(-speed);
     }
     
+    /**
+     * Stops the left and right motor stacks.
+     * @author Team 61 Programming
+     * @param speed 
+     */
     public void stop() {
     	moveLeftMotorStack(0.0);
     	moveRightMotorStack(0.0);
@@ -124,24 +131,5 @@ public class DriveTrain extends Subsystem {
 //    {
 //        return -leftEncoder.getDistance();
 //    }
-//    
-    /**
-    * Changes the motors from driving mode to torque mode (add torque to the pulley by adding two motors)
-    * @author Team 61 Programming
-    */
-//    public void swap() {
-//    	leftSwapSolenoid.set(true);
-//    	rightSwapSolenoid.set(true);
-//    }
-
-    /**
-    * Changes the motors from torque mode to driving mode
-    * @author Team 61 Programming
-    */
-//	public void unswap() {
-//    	leftSwapSolenoid.set(false);
-//    	rightSwapSolenoid.set(false);
-//		
-//	}
 }
 
