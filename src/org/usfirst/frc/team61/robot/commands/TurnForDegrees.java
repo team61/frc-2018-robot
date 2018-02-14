@@ -3,12 +3,13 @@ package org.usfirst.frc.team61.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Turn the robot for a specific amount of degrees based on the gyro reading.
+ * Turn the robot for a specific amount of degrees based on the AnalogGyro reading.
  * @author Team 61 Programming
  */
 public class TurnForDegrees extends GlobalCommand {
 
     private static final double kThresh = 3.0;
+    private static final double FUDGE_FACTOR = .75;
     private double target;
     private double angle;
     private double error;
@@ -16,7 +17,7 @@ public class TurnForDegrees extends GlobalCommand {
 	
     public TurnForDegrees(double angle, double speed) {
     	requires(drivetrain);
-    	this.angle = angle;
+    	this.angle = angle * FUDGE_FACTOR;
     	this.speed = speed;
     }
 
@@ -30,6 +31,7 @@ public class TurnForDegrees extends GlobalCommand {
     protected void execute() {
     	double vel;
     	double angle = drivetrain.getGyroAngle();
+    	System.out.println(angle);
     	error = target - angle;
         System.out.println("T "+target+" - A "+angle+" = E "+error);
         if (error > 0 ) {
@@ -44,7 +46,8 @@ public class TurnForDegrees extends GlobalCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return ((Math.abs(error) < kThresh));
+    	return ((Math.abs(error) < kThresh));
+
     }
 
     // Called once after isFinished returns true

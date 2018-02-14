@@ -25,7 +25,7 @@ public class AutoGroup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 
-    	addSequential(new DriveForDistance(251.28, .2));
-//    	addSequential(new TurnForDegrees(90, .5));
+//    	addSequential(new DriveForDistance(251.28, .2));
+    	addSequential(new TurnForDegrees(90, .3)); // moves to the right 90 degrees
     }
 }
