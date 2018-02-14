@@ -17,15 +17,16 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  * The DriveTrain Subsystem
  */
 public class DriveTrain extends Subsystem {
-	private Encoder driveEncoder = new Encoder(RobotMap.eDriveA, RobotMap.eDriveB, true, EncodingType.k4X);
+	private Encoder leftEncoder = new Encoder(RobotMap.eLeftA, RobotMap.eLeftB, true, EncodingType.k4X);
+	private Encoder rightEncoder = new Encoder(RobotMap.eRightA, RobotMap.eRightB, true, EncodingType.k4X);
 
 	private AnalogGyro mainGyro = new AnalogGyro(RobotMap.mainGyro);
 	
 	public static final double WHEEL_DIAMETER = 8;
 	public static final double PULSE_PER_REVOLUTION = 1440;
-	public static final double ENCODER_GEAR_RATIO = 0;
+	public static final double ENCODER_GEAR_RATIO = 1;
 	public static final double GEAR_RATIO = 5 / 3;
-	public static final double FUDGE_FACTOR = 1.0;
+	public static final double FUDGE_FACTOR = .84;
 	
     CANTalon firstLeftMotor = new CANTalon(RobotMap.mLeftA); 
     CANTalon secondLeftMotor = new CANTalon(RobotMap.mLeftB);
@@ -36,7 +37,8 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
     	super("DriveTrain");
         final double distancePerPulse = Math.PI * WHEEL_DIAMETER / PULSE_PER_REVOLUTION / ENCODER_GEAR_RATIO / GEAR_RATIO * FUDGE_FACTOR;
-    	driveEncoder.setDistancePerPulse(distancePerPulse);
+    	leftEncoder.setDistancePerPulse(distancePerPulse);
+    	rightEncoder.setDistancePerPulse(distancePerPulse);
         System.out.println("DriveTrain Initiated");
     }
 
@@ -121,12 +123,20 @@ public class DriveTrain extends Subsystem {
         return mainGyro.getRate();
     }
    
-    public double getDriveEncoder() {
-    	return driveEncoder.getDistance();
+    public double getLeftEncoder() {
+    	return leftEncoder.getDistance();
     }
     
-    public void resetDriveEncoder() {
-    	driveEncoder.reset();
+    public void resetLeftEncoder() {
+    	leftEncoder.reset();
+    }
+    
+    public double getRightEncoder() {
+    	return rightEncoder.getDistance();
+    }
+    
+    public void resetRightEncoder() {
+    	rightEncoder.reset();
     }
 }
 

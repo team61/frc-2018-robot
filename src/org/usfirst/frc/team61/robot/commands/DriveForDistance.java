@@ -22,15 +22,16 @@ public class DriveForDistance extends GlobalCommand {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	drivetrain.resetDriveEncoder();
+    	drivetrain.resetLeftEncoder();
+    	drivetrain.resetRightEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	travelled = drivetrain.getDriveEncoder();
+    	travelled = (drivetrain.getLeftEncoder() + drivetrain.getRightEncoder())/2;
     	drivetrain.tankDrive(speed, speed);
-    	System.out.println(drivetrain.getDriveEncoder());
-    	Timer.delay(.05);
+    	System.out.println("Left: " + drivetrain.getLeftEncoder());
+    	System.out.println("Right: " + drivetrain.getRightEncoder());
     }
 
     // Make this return true when this Command no longer needs to run execute()

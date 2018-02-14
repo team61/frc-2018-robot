@@ -24,8 +24,10 @@ public class RobotMap {
 	public static int mLiftB = 6;
 	
 	//Encoder Ports
-	public static int eDriveA = 0;
-	public static int eDriveB = 0;
+	public static int eLeftA = 1;
+	public static int eLeftB = 2;
+	public static int eRightA = 7;
+	public static int eRightB = 8;
 	public static int eLiftA = 3;
 	public static int eLiftB= 4;
 	
@@ -44,5 +46,5 @@ public class RobotMap {
 	//Misc.
 	public static int liftMaxHeight = 5000 - 800; // limit minus starting point
 	public static int barToggleButton = 10;
-	public static int mainGyro = 3;
+	public static int mainGyro = 0;
 }
