@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team61.robot.commands.AutonomousBase;
+
+import org.usfirst.frc.team61.robot.commands.AutoGroup;
 import org.usfirst.frc.team61.robot.commands.GlobalCommand;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
 
@@ -65,7 +66,7 @@ public class Robot extends IterativeRobot {
 
 	public void autonomousInit() {
         // instantiate the command used for the autonomous period (the chooser on the smart dashboard will pick this)
-		autonomousCommand = new AutonomousBase();
+		autonomousCommand = new AutoGroup();
 		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) autonomousCommand.start();
