@@ -4,19 +4,21 @@ import org.usfirst.frc.team61.robot.RobotMap;
 import org.usfirst.frc.team61.robot.commands.DriveWithJoysticks;
 
 import com.ctre.CANTalon;
+
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
+
 
 /**
  * The DriveTrain Subsystem
  */
 public class DriveTrain extends Subsystem {
-//	private Encoder leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB);
-//	private Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
-//
-//	public Solenoid leftSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.leftSwapSolenoidChannel); // this solenoid swaps the motor that is controlling the wheels to the motor that controls the lift
-//	public Solenoid rightSwapSolenoid = new Solenoid(RobotMap.swapSolenoidModuleNumber, RobotMap.rightSwapSolenoidChannel);
+//	private Encoder driveEncoder = new Encoder(RobotMap.driveEncoderA, RobotMap.driveEncoderB);
+
+	private AnalogGyro mainGyro = new AnalogGyro(RobotMap.mainGyro);
 	
     CANTalon firstLeftMotor = new CANTalon(RobotMap.mLeftA); 
     CANTalon secondLeftMotor = new CANTalon(RobotMap.mLeftB);
@@ -91,45 +93,24 @@ public class DriveTrain extends Subsystem {
     }
     
     /**
-     * Reset Right Encoder
-     * Resets the right encoder counter to 0
-     * @author Team 61 Programming
+     * Resets Gyro to 0
      */
-//    public void resetRightEncoder()
-//    {
-//        rightEncoder.reset();
-//    }
-//    
+    public void resetGyro(){
+        mainGyro.reset();
+    }
+    
     /**
-     * Reset Left Encoder
-     * Resets the left encoder counter to 0
-     * @author Team 61 Programming
+     * Get Gyro Angle
+     * Positive is clockwise
+     * @return scaled angle in degrees
      */
-//    public void resetLeftEncoder()
-//    {
-//        leftEncoder.reset();
-//    }
-//    
-    /**
-     * Get Right Encoder Distance
-     * Returns scaled value of right encoder
-     * @return distance since last reset of right encoder
-     * @author Team 61 Programming
-     */
-//    public double getRightEncoder()
-//    {
-//        return rightEncoder.getDistance();
-//    }
-//    
-    /**
-     * Get Left Encoder Distance
-     * Returns scaled value of left encoder
-     * @return distance since last reset of left encoder
-     * @author Team 61 Programming
-     */
-//    public double getLeftEncoder()
-//    {
-//        return -leftEncoder.getDistance();
-//    }
+    public double getGyroAngle(){
+        return mainGyro.getAngle();
+    }
+    
+    public double getGyroRate(){
+        return mainGyro.getRate();
+    }
+   
 }
 
