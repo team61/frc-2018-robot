@@ -26,7 +26,7 @@ public class DriveTrain extends Subsystem {
 	public static final double PULSE_PER_REVOLUTION = 1440;
 	public static final double ENCODER_GEAR_RATIO = 1;
 	public static final double GEAR_RATIO = 5 / 3;
-	public static final double FUDGE_FACTOR = 2.61;
+	public static final double FUDGE_FACTOR = 2.73;
 	//.84
 	
     CANTalon firstLeftMotor = new CANTalon(RobotMap.mLeftA); 

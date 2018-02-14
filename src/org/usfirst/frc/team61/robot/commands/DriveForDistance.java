@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveForDistance extends GlobalCommand {
 
-    private double target = 1;
+    private static final double FUDGE_FACTOR = .94;
+	private double target = 1;
     private double speed = .5;
     private double threshold = .25;
     public double travelled = 0;
@@ -29,7 +30,7 @@ public class DriveForDistance extends GlobalCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	travelled = (drivetrain.getLeftEncoder() + drivetrain.getRightEncoder())/2;
-    	drivetrain.tankDrive(speed, speed);
+    	drivetrain.tankDrive(speed, speed*FUDGE_FACTOR);
     	System.out.println("Left: " + drivetrain.getLeftEncoder());
     	System.out.println("Right: " + drivetrain.getRightEncoder());
     }
