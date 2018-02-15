@@ -33,16 +33,18 @@ public class AutoGroup extends CommandGroup {
     	String gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if(gameData.charAt(0) == 'L')
     	{
+    		// left data
     		if (chooserswitch.getChooserSwitch()) {
     			addSequential(new AutoLeftA());
     		} else {
-    			addSequential(new AutoLeftB());
+    			addSequential(new AutoRightB());
     		}
     	} else {
+    		// right data
     		if (chooserswitch.getChooserSwitch()) {
-    			addSequential(new AutoRightA());
+    			addSequential(new AutoLeftB());
     		} else {
-    			addSequential(new AutoRightB());
+    			addSequential(new AutoRightA());
     		}
     	}
     	

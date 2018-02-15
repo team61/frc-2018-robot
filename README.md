@@ -8,8 +8,6 @@ Teams work together to build, program and test robots with the guidance of adult
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-1. hi
-2. hi
 
 ### Prerequisites
 
