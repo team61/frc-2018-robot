@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TurnForDegrees extends GlobalCommand {
 
     private static final double kThresh = 3.0;
-    private static final double FUDGE_FACTOR = .75;
+    private static final double FUDGE_FACTOR = 1;
     private double target;
     private double angle;
     private double error;

@@ -1,5 +1,8 @@
 package org.usfirst.frc.team61.robot.commands;
 
+import org.usfirst.frc.team61.robot.subsystems.ChooserSwitch;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -7,8 +10,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoGroup extends CommandGroup {
-
+	public ChooserSwitch chooserswitch = new ChooserSwitch();
     public AutoGroup() {
+    	
+
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -26,25 +31,36 @@ public class AutoGroup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 
-//    	String gameData = DriverStation.getInstance().getGameSpecificMessage();
-//    	if(gameData.charAt(0) == 'L')
-//    	{
-//    		if (switch = true) {
-//    			addSequential(new AutoLeftA());
-//    		} else {
-//    			addSequential(new AutoRightA());
-//    		}
-//    	} else {
-//    		if (switch = false) {
-//    			addSequential(new AutoLeftB());
-//    		} else {
-//    			addSequential(new AutoRightB());
-//    		}
-//    	}
+    	String gameData = DriverStation.getInstance().getGameSpecificMessage();
+    	if(gameData.charAt(0) == 'L')
+    	{
+    		if (chooserswitch.getChooserSwitch()) {
+    			addSequential(new AutoLeftA());
+    		} else {
+    			addSequential(new AutoLeftB());
+    		}
+    	} else {
+    		if (chooserswitch.getChooserSwitch()) {
+    			addSequential(new AutoRightA());
+    		} else {
+    			addSequential(new AutoRightB());
+    		}
+    	}
     	
-    	addSequential(new DriveForDistance(12, .2));
-    	addSequential(new openClaw());
-//    	addSequential(new TurnForDegrees(-90, .3)); // moves to the right 90 degrees
+    	//left short switch
+//    	addSequential(new DriveForDistance((110), .6));
+//    	addSequential(new DriveForDistance((17), .2));
+//    	addSequential(new TurnForDegrees(90, .2));
+//    	addSequential(new DriveForDistance(28, .6));
+//    	addSequential(new lowerClaw());
+//    	addSequential(new openClaw());
+//    	addSequential(new liftClaw());
+//    	addSequential(new closeClaw());
+    	
+    	addSequential(new DriveForDistance(299, .6));
+    	
+
+    	
     	System.out.println("AUTONOMOUS - DONE");
     }
 }

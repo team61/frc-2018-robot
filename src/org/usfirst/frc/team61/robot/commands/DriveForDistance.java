@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveForDistance extends GlobalCommand {
 
-    private static final double FUDGE_FACTOR = .97; //FUDGE_FACTOR brings motor speed to equilibrium
+    private static final double FUDGE_FACTOR = .92; //FUDGE_FACTOR affecs the left side
 	private double target = 1;
     private double speed = .5;
     private double threshold = .25;

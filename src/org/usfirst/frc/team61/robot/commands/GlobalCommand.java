@@ -1,6 +1,7 @@
 package org.usfirst.frc.team61.robot.commands;
 
 import org.usfirst.frc.team61.robot.OI;
+import org.usfirst.frc.team61.robot.subsystems.ChooserSwitch;
 import org.usfirst.frc.team61.robot.subsystems.Claw;
 import org.usfirst.frc.team61.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team61.robot.subsystems.Lift;

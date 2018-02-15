@@ -46,4 +46,5 @@ public class RobotMap {
 	public static int liftMaxHeight = 5000 - 800; // limit minus starting point
 	public static int barToggleButton = 10;
 	public static int mainGyro = 0;
+	public static int chooserSwitch = 7;
 }

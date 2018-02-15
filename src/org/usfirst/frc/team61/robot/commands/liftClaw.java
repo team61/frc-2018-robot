@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class openClaw extends GlobalCommand {
+public class liftClaw extends GlobalCommand {
 
-    public openClaw() {
+    public liftClaw() {
     	requires(claw);
-    	setTimeout(1);
+    	setTimeout(.5);
     }
 
     // Called just before this Command runs the first time
@@ -18,17 +18,16 @@ public class openClaw extends GlobalCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	claw.openClaw();
+    	claw.liftClaw();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+    	return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	claw.openClaw();
     }
 
     // Called when another command which requires one or more of the same
