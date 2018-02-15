@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoGroup extends CommandGroup {
 	public ChooserSwitch chooserswitch = new ChooserSwitch();
     public AutoGroup() {
-    	
 
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -57,10 +56,8 @@ public class AutoGroup extends CommandGroup {
 //    	addSequential(new liftClaw());
 //    	addSequential(new closeClaw());
     	
-    	addSequential(new DriveForDistance(299, .6));
-    	
+//    	addSequential(new DriveForDistance(299, .6));
 
-    	
-    	System.out.println("AUTONOMOUS - DONE");
+//    	System.out.println("AUTONOMOUS - DONE");
     }
 }
