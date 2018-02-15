@@ -16,8 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Lift extends Subsystem {
 
-	CANTalon firstLiftMotor = new CANTalon(RobotMap.mLiftA);
-	CANTalon secondLiftMotor = new CANTalon(RobotMap.mLiftB);
+	CANTalon liftMotor = new CANTalon(RobotMap.mLift);
 	Encoder liftEncoder = new Encoder(RobotMap.eLiftA, RobotMap.eLiftB);
 
 	public Lift() {
@@ -47,14 +46,12 @@ public class Lift extends Subsystem {
     
 	@SuppressWarnings("deprecation")
 	private void moveLiftMotorStack(double speed) {
-		firstLiftMotor.set(speed);
-		secondLiftMotor.set(speed);
+		liftMotor.set(speed);
 	}
 
 	@SuppressWarnings("deprecation")
 	public void stop() {
-		firstLiftMotor.set(0.0);
-		secondLiftMotor.set(0.0);
+		liftMotor.set(0.0);
 	}
 	
 	public double getLiftEncoder(){

@@ -22,8 +22,7 @@ public class TorqueLift extends Subsystem {
     CANTalon secondMotor = new CANTalon(RobotMap.mLeftB);
     CANTalon thirdMotor = new CANTalon(RobotMap.mRightA);
     CANTalon fourthMotor = new CANTalon(RobotMap.mRightB);
-	CANTalon fifthMotor = new CANTalon(RobotMap.mLiftA);
-	CANTalon sixthMotor = new CANTalon(RobotMap.mLiftB);
+	CANTalon fifthMotor = new CANTalon(RobotMap.mLift);
 	
     public TorqueLift() {
     	super("TorqueLift");
@@ -41,7 +40,6 @@ public class TorqueLift extends Subsystem {
     	thirdMotor.set(speed);
     	fourthMotor.set(speed);
     	fifthMotor.set(speed);
-    	sixthMotor.set(speed);
     }
     
     public void swap() {

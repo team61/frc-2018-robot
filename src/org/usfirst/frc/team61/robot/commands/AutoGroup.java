@@ -1,5 +1,6 @@
 package org.usfirst.frc.team61.robot.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -25,7 +26,23 @@ public class AutoGroup extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 
-    	addSequential(new DriveForDistance(251.28, .2));
+//    	String gameData = DriverStation.getInstance().getGameSpecificMessage();
+//    	if(gameData.charAt(0) == 'L')
+//    	{
+//    		if (switch = true) {
+//    			addSequential(new AutoLeftA());
+//    		} else {
+//    			addSequential(new AutoRightA());
+//    		}
+//    	} else {
+//    		if (switch = false) {
+//    			addSequential(new AutoLeftB());
+//    		} else {
+//    			addSequential(new AutoRightB());
+//    		}
+//    	}
+    	
+    	addSequential(new DriveForDistance(251.28, .2)); // currently this goes in reverse
     	addSequential(new TurnForDegrees(-90, .3)); // moves to the right 90 degrees
     	System.out.println("AUTONOMOUS - DONE");
     }

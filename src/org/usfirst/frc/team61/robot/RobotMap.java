@@ -20,8 +20,7 @@ public class RobotMap {
 	public static int mLeftB = 2;
 	public static int mRightA = 3;
 	public static int mRightB = 4;
-	public static int mLiftA = 5;
-	public static int mLiftB = 6;
+	public static int mLift = 5;
 	
 	//Encoder Ports
 	public static int eLeftA = 1;

@@ -17,23 +17,23 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  * The DriveTrain Subsystem
  */
 public class DriveTrain extends Subsystem {
-	private Encoder leftEncoder = new Encoder(RobotMap.eLeftA, RobotMap.eLeftB, true, EncodingType.k4X);
-	private Encoder rightEncoder = new Encoder(RobotMap.eRightA, RobotMap.eRightB, true, EncodingType.k4X);
+	private Encoder leftEncoder = new Encoder(RobotMap.eLeftA, RobotMap.eLeftB, false, EncodingType.k4X);
+	private Encoder rightEncoder = new Encoder(RobotMap.eRightA, RobotMap.eRightB, false, EncodingType.k4X);
 
 	private AnalogGyro mainGyro = new AnalogGyro(RobotMap.mainGyro);
-	
-	public static final double WHEEL_DIAMETER = 8;
-	public static final double PULSE_PER_REVOLUTION = 1440;
-	public static final double ENCODER_GEAR_RATIO = 1;
-	public static final double GEAR_RATIO = 5 / 3;
-	public static final double FUDGE_FACTOR = 2.73;
-	//.84
 	
     CANTalon firstLeftMotor = new CANTalon(RobotMap.mLeftA); 
     CANTalon secondLeftMotor = new CANTalon(RobotMap.mLeftB);
     CANTalon firstRightMotor = new CANTalon(RobotMap.mRightA);
     CANTalon secondRightMotor = new CANTalon(RobotMap.mRightB);
     
+	public static final double WHEEL_DIAMETER = 8;
+	public static final double PULSE_PER_REVOLUTION = 1440;
+	public static final double ENCODER_GEAR_RATIO = 1;
+	public static final double GEAR_RATIO = 5 / 3;
+	public static final double FUDGE_FACTOR = 2.73; // this is changed to accurately get a measure from our encoder
+	//.84
+	
     // Initialize the subsystem
     public DriveTrain() {
     	super("DriveTrain");
