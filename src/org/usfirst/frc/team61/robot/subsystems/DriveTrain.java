@@ -31,7 +31,7 @@ public class DriveTrain extends Subsystem {
 	public static final double PULSE_PER_REVOLUTION = 1440;
 	public static final double ENCODER_GEAR_RATIO = 1;
 	public static final double GEAR_RATIO = 5 / 3;
-	public static final double FUDGE_FACTOR = 2.73; // this is changed to accurately get a measure from our encoder
+	public static final double FUDGE_FACTOR = 2.8; // this is changed to accurately get a measure from our encoder
 	//.84
 	
     // Initialize the subsystem

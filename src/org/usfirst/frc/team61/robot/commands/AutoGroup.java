@@ -42,8 +42,9 @@ public class AutoGroup extends CommandGroup {
 //    		}
 //    	}
     	
-    	addSequential(new DriveForDistance(251.28, .2)); // currently this goes in reverse
-    	addSequential(new TurnForDegrees(-90, .3)); // moves to the right 90 degrees
+    	addSequential(new DriveForDistance(12, .2));
+    	addSequential(new openClaw());
+//    	addSequential(new TurnForDegrees(-90, .3)); // moves to the right 90 degrees
     	System.out.println("AUTONOMOUS - DONE");
     }
 }
