@@ -68,6 +68,7 @@ Since the season is close to over, we will most likely archive this project from
 * **Thomas Buckley** - *Author of documentation / Vice President of Programming* - [thomasbuckley](https://github.com/thomasabuckley)
 * **Alexandra Valros** - *Lead Programmer* - [meesemouse](https://github.com/meesemouse)
 * **Adam Dickey** - *Programming Helper / Autonomous* - [adamdickey](https://github.com/adamdickey)
+* **Jake Lutton** - *IT Support* - [JakeatBVT](https://github.com/JakeatBVT)
 * **Kevin Downing** - *Shadowed Programmers* - [KevinDowning](https://github.com/KevinDowning)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
