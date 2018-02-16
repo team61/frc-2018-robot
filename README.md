@@ -28,28 +28,31 @@ A step by step installation guide to run this program on the Team 61 FRC Robot
 
 1. Get the FRC 2018 Update Suite by visiting [their website](http://www.ni.com/download/first-robotics-software-2015/5112/en/) and downloading the Update Suite. A encryption key may be necessary, if so, for 2018 it is: pLaY&4%R3aL!. Be sure to uninstall any previous version of National Instruments software before starting. Extract the package that you have downloaded, and run the installer. For testing purposes, it is not necessary to activate the software if asked.
 
-2. 
+2. Download the installer for the Java SE Development Kit 8 (any other version will not function properly with the 2017/2018 code) from [this website.](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) Make sure that the version downloaded fit the operating system of the computer you are testing on. Run the installer.
 
+3. Next, download the installer for the Eclipse IDE for Java developers from [this website.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/oxygen2) Run the installer.
+
+4. Java SE Development Kit 8 must now be selected for use in Eclipse. To do this, open Eclipse, and click
+```
+Window > Prefrences > Java > Installed JRES > Select "jdk1.8.0"
+```
+make sure that the JRE is not being used as this will not function for FRC robot code.
+
+5. The next step is to install the FRC Plugins for use with Java Programming. To do this, open Eclipse and click
+```
+Help > Install New Software > Click the "Add" Button
+```
+for the name, type "FRC Plugins," and for the location, type "http://first.wpi.edu/FRC/roborio/release/eclipse/."
+
+6. Next, download the installer for the CTRE Toolsuite Legacy v4 from [this website.](http://www.ctr-electronics.com/hro.html#product_tabs_technical_resources) We began programming in 2017, and many of the methods used are now deprecated, which is why the Legacy version is being used.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+To run the robot code, connect your computer to the RoboRIO, either by USB or Ethernet/radio. Next, in Eclipse, right click the file titled "robot.java" and selected
 ```
-Give an example
+Run As > WPILib Java Deploy
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+the console in Driver Station is very helpful in debugging issues in a scenario where this does not properly work. Many messages are outputted throughout the code to help in these situations.
 
 ## Deployment
 
