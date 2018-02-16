@@ -24,21 +24,12 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+A step by step installation guide to run this program on the Team 61 FRC Robot
 
-Say what the step will be
+1. Get the FRC 2018 Update Suite by visiting [their website](http://www.ni.com/download/first-robotics-software-2015/5112/en/) and downloading the Update Suite. A encryption key may be necessary, if so, for 2018 it is: pLaY&4%R3aL!. Be sure to uninstall any previous version of National Instruments software before starting. Extract the package that you have downloaded, and run the installer. For testing purposes, it is not necessary to activate the software if asked.
 
-```
-Give the example
-```
+2. 
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
