@@ -46,7 +46,7 @@ for the name, type "FRC Plugins," and for the location, type "http://first.wpi.e
 
 6. Next, download the installer for the CTRE Toolsuite Legacy v4 from [this website.](http://www.ctr-electronics.com/hro.html#product_tabs_technical_resources) We began programming in 2017, and many of the methods used are now deprecated, which is why the Legacy version is being used.
 
-## Running the tests
+## Deployment
 
 To run the robot code, connect your computer to the RoboRIO, either by USB or Ethernet/radio. Next, in Eclipse, right click the file titled "robot.java" and selected
 ```
@@ -54,27 +54,19 @@ Run As > WPILib Java Deploy
 ```
 the console in Driver Station is very helpful in debugging issues in a scenario where this does not properly work. Many messages are outputted throughout the code to help in these situations.
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html) - The language we used
+* [WPILib](http://first.wpi.edu/FRC/roborio/release/docs/java/) - Libraries to program the FRC Robot
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+Since the season is close to over, we will most likely archive this project from further contributions.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Thomas Buckley** - *Author of documentation / Vice President of Programming* - [thomasbuckley](https://github.com/thomasabuckley)
+* **Alexandra Valros** - *Lead Programmer* - [meesemouse](https://github.com/meesemouse)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -84,6 +76,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Thanks to the [previous 2015 Team 61 Programming Team](https://github.com/BVT-Team-61) for their helpful documentation and source code
