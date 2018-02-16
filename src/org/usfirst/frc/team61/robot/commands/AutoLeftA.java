@@ -13,9 +13,8 @@ public class AutoLeftA extends CommandGroup {
     	addSequential(new TurnForDegrees(90, .25));
     	addSequential(new DriveForDistance(28, .6));
     	addSequential(new lowerClaw());
-    	addSequential(new openClaw());
-    	addSequential(new liftClaw());
-    	addSequential(new closeClaw());
+    	addSequential(new openClaw()); // this automatically closes the claw for some reason
+    	addParallel(new liftClaw());
     	System.out.println("DONE");
     }
 }
