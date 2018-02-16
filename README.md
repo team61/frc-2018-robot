@@ -13,9 +13,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
+1. FRC 2018 Update Suite (http://www.ni.com/download/first-robotics-software-2015/5112/en/)
+2. Java SE Development Kit 8 (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+3. Eclipse IDE For Java Developers (http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/oxygen2)
+4. CTRE Toolsuite v4_Legacy (http://www.ctr-electronics.com/hro.html#product_tabs_technical_resources)
+5. FRC Plugins
+<!-- ```
 Give examples
-```
+``` -->
 
 ### Installing
 
