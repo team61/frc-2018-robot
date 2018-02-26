@@ -34,17 +34,29 @@ public class AutoGroup extends CommandGroup {
     	if(gameData.charAt(0) == 'L')
     	{
     		// left data
-    		if (chooserswitch.getChooserSwitch()) {
-    			addSequential(new AutoLeftA());
+    		if (chooserswitch.getChooserSwitchB()) {
+    			//Runs when middle switch is enabled
+    			addSequential(new AutoMiddleLeft());
     		} else {
-    			addSequential(new AutoRightB());
+    			//Runs when middle switch is disabled
+	    		if (chooserswitch.getChooserSwitchA()) {
+	    			addSequential(new AutoLeftA());
+	    		} else {
+	    			addSequential(new AutoRightB());
+	    		}
     		}
     	} else {
     		// right data
-    		if (chooserswitch.getChooserSwitch()) {
-    			addSequential(new AutoLeftB());
+    		if (chooserswitch.getChooserSwitchB()) {
+    			//Runs when middle switch is enabled
+    			addSequential(new AutoMiddleRight());
     		} else {
-    			addSequential(new AutoRightA());
+    			//Runs when middle switch is disabled
+	    		if (chooserswitch.getChooserSwitchA()) {
+	    			addSequential(new AutoLeftB());
+	    		} else {
+	    			addSequential(new AutoRightA());
+	    		}
     		}
     	}
     	
