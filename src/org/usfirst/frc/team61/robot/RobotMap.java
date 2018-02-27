@@ -47,5 +47,5 @@ public class RobotMap {
 	public static int barToggleButton = 10;
 	public static int mainGyro = 0;
 	public static int chooserSwitchA = 6;
-	public static int chooserSwitchB = 7;
+	public static int chooserSwitchB = 5;
 }
