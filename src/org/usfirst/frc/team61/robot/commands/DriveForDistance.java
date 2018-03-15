@@ -12,6 +12,7 @@ public class DriveForDistance extends GlobalCommand {
 	private double target = 1;
     private double speed = .5;
     private double threshold = .25;
+    private double timeout = 5;
     private boolean finishedLeft = false;
     private boolean finishedRight = false;
 //    public double travelled = 0;
@@ -19,10 +20,12 @@ public class DriveForDistance extends GlobalCommand {
     public double travelledRight = 0;
     
 
-	public DriveForDistance(double target, double speed) {
+	public DriveForDistance(double target, double speed, double timeout) {
     	requires(drivetrain);
     	this.target = target;
     	this.speed = -speed;
+    	this.timeout = timeout;
+    	setTimeout(timeout);
     }
 
     // Called just before this Command runs the first time
@@ -52,7 +55,7 @@ public class DriveForDistance extends GlobalCommand {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
 //        return (target - travelled) < threshold;
-        return (finishedRight);
+        return (finishedRight) || isTimedOut();
 //        return (finishedRight && finishedLeft);
     }
 

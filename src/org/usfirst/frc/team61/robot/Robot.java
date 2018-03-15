@@ -23,8 +23,8 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	
-    public final String teamNo = "  61";
-    public final String versionNo = "2-15-2018";
+    public final String teamNo = "   61";
+    public final String versionNo = "3-1-2018";
 
 	Command autonomousCommand;
 	Command torqueLiftCommand;

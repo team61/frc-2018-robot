@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoRightB extends CommandGroup {
     public AutoRightB() {
-    	addSequential(new DriveForDistance(290, .8));
-    	addSequential(new DriveForDistance(10, .3));
+    	addSequential(new DriveForDistance(290, .8, 10));
+    	addSequential(new DriveForDistance(10, .3, 5));
     }
 }

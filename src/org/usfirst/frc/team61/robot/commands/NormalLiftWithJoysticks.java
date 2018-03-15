@@ -13,7 +13,7 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
     }
 
     protected void initialize() {
-        lift.resetEncoder();
+        lift.resetEncoder(); // this will have to be removed so that the encoder does not reset after autonomous is complete
     }
 
     protected void execute() {
@@ -22,30 +22,15 @@ public class NormalLiftWithJoysticks extends GlobalCommand {
         	// The commands here will occur if the TorqueLift toggle switch
         	// is activated. All code here will only run after the button
         	// has been toggled.
-        	if (!limitswitch.getReadyState()) {
-        		lift.moveLift(oi.getLiftYUpSpeed());
-        	}
         } else {
         	// The commands here will occur normally, when the TorqueLift is
         	// not activated.
         	if (limitswitch.getReadyState()) {
-        		if(lift.getLiftEncoder() < RobotMap.liftMaxHeight) {
-                	torquelift.sSet();
-                	lift.moveLift(oi.getLiftSpeed());
-                	if (lift.getLiftEncoder() < -500) {
-                		if (oi.getLiftSpeed() < 0) {
-                			lift.moveLift(oi.getLiftSpeed());
-                		} else {
-                			lift.moveLift(oi.getLiftSpeed()/3);
-                		}
-                	}
-        		} else {
-        			lift.moveLift(oi.getLiftYDownSpeed());
-        		}
-            	System.out.println("Encoder Value = " + lift.getLiftEncoder());
-        	} else {
-            	lift.moveLift(oi.getLiftYUpSpeed());
-        	}
+            	torquelift.sSet();
+            	lift.moveLift(oi.getLiftSpeed());
+    		} else {
+    			lift.moveLift(oi.getLiftYUpSpeed());
+    		}
         }
     }
 

@@ -21,9 +21,9 @@ public class AutoMiddleRight extends CommandGroup {
 //    	addSequential(new openClaw()); // this automatically closes the claw for some reason
 //    	addParallel(new liftClaw());
 //    	System.out.println("DONE");
-    	addSequential(new DriveForDistance(10, .6));
-    	addSequential(new TurnForDegrees(35, .25));
-    	addSequential(new DriveForDistance(10.5*12, .6));
+    	addSequential(new DriveForDistance(10, .6, 3));
+    	addSequential(new TurnForDegrees(20, .25));
+    	addSequential(new DriveForDistance(10.5*12, .6, 4));
     	addSequential(new lowerClaw());
     	addSequential(new openClaw()); // this automatically closes the claw for some reason
     	addParallel(new liftClaw());
